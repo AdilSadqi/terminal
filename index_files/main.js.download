@@ -14,6 +14,7 @@ let wrr = false;
 let wrdd = false;
 var commands = [];
 
+
 setTimeout(function() {
   loopLines(banner, "", 80);
   textarea.focus();
@@ -209,7 +210,10 @@ function commander(cmd) {
       break;
     case "update":
       loopLines(update, "color2 margin", 1000);
-	  break;
+      setTimeout(function() {
+      location.reload();
+    }, 17000);
+      break;
     case "social":
       loopLines(social, "color2 margin", 80);
       break;
