@@ -149,6 +149,9 @@ function commander(cmd) {
     case "help":
       loopLines(help, "color2 margin", 80);
       break;
+	case "menu":
+      loopLines(help, "color2 margin", 80);
+      break;
 	case "root":
       loopLines(root, "color2 margin", 80);
       break;
@@ -187,7 +190,7 @@ function commander(cmd) {
       loopLines(help, "color2 margin", 80);
       break;
 	  case "version":
-      addLine("ASCODES v2.6.3", "color2", 80);
+      addLine("ASCODES v2.6.4", "color2", 80);
       setTimeout(function() {
       },800); 
       break;
