@@ -179,7 +179,7 @@ function commander(cmd) {
 	case "update":
       addLine("Opening Updater...", "color2", 80);
       setTimeout(function() {
-      var url = 'https://asadqi.com/update';
+      var url = '/update';
       var win = window.open(url, '_self');
       if (win) {
       win.addEventListener('load', function() {
