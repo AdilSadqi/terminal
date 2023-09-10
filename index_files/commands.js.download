@@ -151,6 +151,20 @@ root = [
   "<br>",
 ]
 
+// First, define the audio element and script outside the banner array
+var audioElement = document.createElement("audio");
+audioElement.id = "sound";
+audioElement.src = "Sound.mp3";
+
+function playSound() {
+    var sound = document.getElementById("sound");
+    sound.play();
+}
+
+window.addEventListener("load", playSound);
+
+// Now, define your banner array with the HTML content
+
 banner = [
   '<span class="index">Adil Sadqi Not A Corporation. No Rights reserved.</span>',
 
