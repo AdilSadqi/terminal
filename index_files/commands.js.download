@@ -151,20 +151,6 @@ root = [
   "<br>",
 ]
 
-// First, define the audio element and script outside the banner array
-var audioElement = document.createElement("audio");
-audioElement.id = "sound";
-audioElement.src = "Sound.mp3";
-
-function playSound() {
-    var sound = document.getElementById("sound");
-    sound.play();
-}
-
-window.addEventListener("load", playSound);
-
-// Now, define your banner array with the HTML content
-
 banner = [
   '<span class="index">Adil Sadqi Not A Corporation. No Rights reserved.</span>',
 
@@ -179,8 +165,9 @@ banner = [
   "                                                                     ",
 
   "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
-  '<audio src="Sound.mp3" preload="auto"></audio>',
-  '<span class="color2">Welcome to my interactive web terminal.</span>',
-  "<span class=\"color2\">For a list of available commands, type</span> <span class=\"command\">'help'</span><span class=\"color2\"><span class=\"color2\"> Or type </span> <span class=\"command\">'windows'</span><span class=\"color2\"><span class=\"color2\"> For Windows Version. </span></span>",
+    '<audio src="Sound.mp3" preload="auto"></audio>',
+    '<span class="color2">Welcome to my interactive web terminal.</span>',
+    '<div id="datetime" class="color2">Current Date and Time: Loading...</div>',
+    '<div id="ipaddress" class="color2">Local IP Address: Loading...</div>',
+    "<span class=\"color2\">For a list of available commands, type</span> <span class=\"command\">'help'</span><span class=\"color2\"><span class=\"color2\"> Or type </span> <span class=\"command\">'windows'</span><span class=\"color2\"><span class=\"color2\"> For Windows Version. </span></span>",
 ];
-
