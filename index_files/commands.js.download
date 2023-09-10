@@ -151,6 +151,9 @@ root = [
   "<br>",
 ]
 
+<audio src="sound.mp3" preload="auto"></audio>
+
+
 banner = [
   '<span class="index">Adil Sadqi Not A Corporation. No Rights reserved.</span>',
 
