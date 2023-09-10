@@ -151,7 +151,7 @@ root = [
   "<br>",
 ]
 
-<audio src="sound.mp3" preload="auto"></audio>
+<audio src="Sound.mp3" preload="auto"></audio>
 
 
 banner = [
