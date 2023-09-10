@@ -373,16 +373,3 @@ function getLocalIpAddress() {
     });
 }
 
-// Update the banner content with current date, time, and local IP address
-async function updateBanner() {
-    const formattedDateTime = getCurrentDateTime();
-    const localIpAddress = await getLocalIpAddress();
-    
-    document.getElementById("datetime").innerText = formattedDateTime;
-    document.getElementById("ipaddress").innerText = `Local IP Address: ${localIpAddress}`;
-}
-
-// Execute the updateBanner function when the page loads
-window.addEventListener("load", updateBanner);
-
-// Define your banner array with the updated HTML content
