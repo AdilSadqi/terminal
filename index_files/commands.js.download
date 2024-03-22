@@ -90,7 +90,7 @@ social = [
 
   'discord        <a href="' + discord + '" target="_blank">discord/adilsadqi' + '</a>',
   'instagram      <a href="' + instagram + '" target="_blank">instagram/adilsadqi' + '</a>',
-  'twitter        <a href="' + twitter + '" target="_blank">twitter/adilsadqi' + '</a>',
+  'twitter (X)    <a href="' + twitter + '" target="_blank">twitter/adilsadqi' + '</a>',
   'whatsapp       <a href="' + whatsapp + '" target="_blank">whatsapp/adilsadqi' + "</a>",
   'phone          <a href="' + phone + '" target="_blank">phone/number' + "</a>",
 
