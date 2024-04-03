@@ -149,6 +149,7 @@ root = [
   '<span class="command">creator</span>        Author and creator of this terminal',
   '<span class="command">sadqi</span>          Look for specific name in Sadqi family',
   '<span class="command">weather</span>        Check local weather in realtime',
+  '<span class="command">cv</span>             View or Download Curriculum Vitae',
   "<br>",
 ]
 
