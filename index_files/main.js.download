@@ -198,32 +198,32 @@ function commander(cmd) {
     });
     break;
     case "speedtest":
-    // Function to perform speed test
+    // Function to perform speed test using Fast.com API
     function performSpeedTest(callback) {
-        // Using a free service to perform speed test
-        fetch('https://www.speedtest.net/api/js/speedtest-cdn-mini.php')
+        // Using Fast.com API to perform speed test
+        fetch('https://fast.com/download')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            return response.json();
+            return response.text();
         })
-        .then(data => {
-            // Extracting download and upload speeds from the response
-            const downloadSpeed = data.download;
-            const uploadSpeed = data.upload;
-            callback({ download: downloadSpeed, upload: uploadSpeed });
+        .then(html => {
+            // Parsing HTML response to extract speed data
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const speed = doc.querySelector('.speed-results-container-speed').textContent.trim();
+            callback({ speed: speed });
         })
         .catch(error => callback({ error: "Unable to perform speed test. " + error.message }));
     }
 
-    // Displaying the download and upload speeds
-    performSpeedTest(function(speeds) {
-        if (speeds.error) {
-            addLine("Error: " + speeds.error, "color2", 80);
+    // Displaying the download speed
+    performSpeedTest(function(speed) {
+        if (speed.error) {
+            addLine("Error: " + speed.error, "color2", 80);
         } else {
-            addLine("Download Speed: " + speeds.download + " Mbps", "color2", 80);
-            addLine("Upload Speed: " + speeds.upload + " Mbps", "color2", 80);
+            addLine("Download Speed: " + speed.speed + " Mbps", "color2", 80);
         }
     });
     break;
