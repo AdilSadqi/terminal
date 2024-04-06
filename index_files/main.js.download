@@ -197,7 +197,33 @@ function commander(cmd) {
         addLine("Your current IP address is: " + ip, "color2", 80);
     });
     break;
-  case "update":
+    case "speedtest":
+    // Function to perform speed test
+    function performSpeedTest(callback) {
+        // Using a free service to perform speed test
+        fetch('https://www.speedtest.net/api/js/speedtest-cdn-mini.php')
+        .then(response => response.json())
+        .then(data => {
+            // Extracting download and upload speeds from the response
+            const downloadSpeed = data.download;
+            const uploadSpeed = data.upload;
+            callback({ download: downloadSpeed, upload: uploadSpeed });
+        })
+        .catch(error => callback({ error: "Unable to perform speed test" }));
+    }
+
+    // Displaying the download and upload speeds
+    performSpeedTest(function(speeds) {
+        if (speeds.error) {
+            addLine("Error: " + speeds.error, "color2", 80);
+        } else {
+            addLine("Download Speed: " + speeds.download + " Mbps", "color2", 80);
+            addLine("Upload Speed: " + speeds.upload + " Mbps", "color2", 80);
+        }
+    });
+    break;
+
+    case "update":
       addLine("Opening Updater...", "color2", 80);
       setTimeout(function() {
       var url = '/update';
