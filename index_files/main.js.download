@@ -202,14 +202,19 @@ function commander(cmd) {
     function performSpeedTest(callback) {
         // Using a free service to perform speed test
         fetch('https://www.speedtest.net/api/js/speedtest-cdn-mini.php')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
             // Extracting download and upload speeds from the response
             const downloadSpeed = data.download;
             const uploadSpeed = data.upload;
             callback({ download: downloadSpeed, upload: uploadSpeed });
         })
-        .catch(error => callback({ error: "Unable to perform speed test" }));
+        .catch(error => callback({ error: "Unable to perform speed test. " + error.message }));
     }
 
     // Displaying the download and upload speeds
@@ -222,7 +227,6 @@ function commander(cmd) {
         }
     });
     break;
-
     case "update":
       addLine("Opening Updater...", "color2", 80);
       setTimeout(function() {
