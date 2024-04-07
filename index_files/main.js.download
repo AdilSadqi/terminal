@@ -211,7 +211,7 @@ function commander(cmd) {
     getCurrentTime();
     break;
 
-    case "prank":
+    case "distroy":
     // Prank function to randomly change text on the page
     function prankFriends() {
         // Select all elements on the page
