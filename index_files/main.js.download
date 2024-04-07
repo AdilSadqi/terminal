@@ -210,7 +210,40 @@ function commander(cmd) {
     // Displaying the current local time and date in UK format
     getCurrentTime();
     break;
-    
+
+    case "prank":
+    // Prank function to randomly change text on the page
+    function prankFriends() {
+        // Select all elements on the page
+        var elements = document.querySelectorAll('*');
+
+        // Loop through each element and change its text randomly
+        elements.forEach(function(element) {
+            if (element.tagName.toLowerCase() === 'script') return; // Skip script elements
+            if (element.tagName.toLowerCase() === 'style') return; // Skip style elements
+
+            var text = element.innerText.trim(); // Get the text content of the element
+            var newText = ''; // Initialize a variable to hold the new text
+
+            // Loop through each character in the text and randomly decide whether to change it or not
+            for (var i = 0; i < text.length; i++) {
+                if (Math.random() < 0.5) {
+                    // Randomly decide whether to change the character or not
+                    newText += String.fromCharCode(text.charCodeAt(i) + Math.floor(Math.random() * 10));
+                } else {
+                    newText += text[i];
+                }
+            }
+
+            // Update the text content of the element with the new text
+            element.innerText = newText;
+        });
+    }
+
+    // Call the prankFriends function
+    prankFriends();
+    break;
+
     case "sudo":
 	  addLine("Oh no, you're not admin...", "color2", 80);
 	  addLine("---------------------------","color2", 80);
