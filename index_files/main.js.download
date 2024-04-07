@@ -197,25 +197,36 @@ function commander(cmd) {
         addLine("Your current IP address is: " + ip, "color2", 80);
     });
     break;
-    case "speedtest":
-    // Function to perform speed test using Fast.com API
+case "speedtest":
+    // Function to perform speed test using speedtest.net servers
     function performSpeedTest(callback) {
-        // Using Fast.com API to perform speed test
-        fetch('https://fast.com/download')
+        // Fetching the list of speedtest.net servers
+        fetch('https://www.speedtest.net/speedtest-servers-static.php')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            return response.text();
+            return response.json();
         })
-        .then(html => {
-            // Parsing HTML response to extract speed data
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const speed = doc.querySelector('.speed-results-container-speed').textContent.trim();
-            callback({ speed: speed });
+        .then(serverList => {
+            // Choosing a server from the list (you can customize this logic if needed)
+            const server = serverList[0]; // Selecting the first server for simplicity
+            // Fetching speed test data from the chosen server
+            fetch(`https://${server.url}/speedtest/upload.php`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(speedData => {
+                // Parsing speed test data to extract speed values
+                const speed = parseFloat(speedData);
+                callback({ speed: speed });
+            })
+            .catch(error => callback({ error: "Unable to perform speed test. " + error.message }));
         })
-        .catch(error => callback({ error: "Unable to perform speed test. " + error.message }));
+        .catch(error => callback({ error: "Unable to fetch speedtest.net servers. " + error.message }));
     }
 
     // Displaying the download speed
@@ -227,6 +238,7 @@ function commander(cmd) {
         }
     });
     break;
+
     case "update":
       addLine("Opening Updater...", "color2", 80);
       setTimeout(function() {
