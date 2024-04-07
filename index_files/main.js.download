@@ -245,20 +245,29 @@ function commander(cmd) {
     break;
 
     case "pin":
-    // Function to generate a random 8-digit PIN
-    function generatePIN() {
+    // Function to generate a random PIN with a specified number of digits
+    function generatePIN(numDigits) {
         var pin = "";
-        for (var i = 0; i < 8; i++) {
+        for (var i = 0; i < numDigits; i++) {
             pin += Math.floor(Math.random() * 10); // Append a random digit (0-9) to the PIN
         }
         return pin;
     }
 
-    // Call the generatePIN function to get the PIN
-    var generatedPIN = generatePIN();
+    // Prompt the user to enter the number of digits for the PIN
+    var numDigits = prompt("Enter the number of digits for the PIN:");
 
-    // Display the generated PIN
-    addLine("Your generated PIN is: " + generatedPIN, "color2", 80);
+    // Validate the input
+    if (numDigits && !isNaN(numDigits) && parseInt(numDigits) > 0) {
+        // Call the generatePIN function with the specified number of digits
+        var generatedPIN = generatePIN(parseInt(numDigits));
+
+        // Display the generated PIN
+        addLine("Your generated PIN is: " + generatedPIN, "color2", 80);
+    } else {
+        // Display an error message if the input is invalid
+        addLine("Invalid input. Please enter a valid number of digits.", "color2", 80);
+    }
     break;
 
     case "sudo":
