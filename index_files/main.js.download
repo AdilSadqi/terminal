@@ -269,6 +269,35 @@ function commander(cmd) {
         addLine("Invalid input. Please enter a valid number of digits.", "color2", 80);
     }
     break;
+    case "cowsay":
+    // Function to display a message with a cow saying it
+    function cowsay(message) {
+        var cow = `
+  \\   ^__^
+   \\  (oo)\\_______
+      (__)\\       )\\/\\
+          ||----w |
+          ||     ||`;
+
+        var bubble = " " + "_".repeat(message.length + 2);
+        bubble += "\n< " + message + " >\n";
+        bubble += " " + "-".repeat(message.length + 2);
+
+        return cow + "\n" + bubble;
+    }
+
+    // Prompt the user to enter a message for the cow to say
+    var message = prompt("Enter a message for the cow to say:");
+
+    // Validate the input
+    if (message) {
+        // Display the cow saying the message
+        console.log(cowsay(message));
+    } else {
+        // Display an error message if the input is empty
+        console.log("Please enter a message for the cow to say.");
+    }
+    break;
 
     case "sudo":
 	  addLine("Oh no, you're not admin...", "color2", 80);
