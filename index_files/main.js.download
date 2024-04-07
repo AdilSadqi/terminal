@@ -244,6 +244,23 @@ function commander(cmd) {
     prankFriends();
     break;
 
+    case "pin":
+    // Function to generate a random 8-digit PIN
+    function generatePIN() {
+        var pin = "";
+        for (var i = 0; i < 8; i++) {
+            pin += Math.floor(Math.random() * 10); // Append a random digit (0-9) to the PIN
+        }
+        return pin;
+    }
+
+    // Call the generatePIN function to get the PIN
+    var generatedPIN = generatePIN();
+
+    // Display the generated PIN
+    addLine("Your generated PIN is: " + generatedPIN, "color2", 80);
+    break;
+
     case "sudo":
 	  addLine("Oh no, you're not admin...", "color2", 80);
 	  addLine("---------------------------","color2", 80);
