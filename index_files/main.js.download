@@ -204,7 +204,7 @@ function commander(cmd) {
         const now = new Date();
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' };
         const formattedTime = now.toLocaleString('en-GB', options);
-        addLine("Current Local Time (UK): " + formattedTime, "color2", 80);
+        addLine("Your Current Local Time : " + formattedTime, "color2", 80);
     }
 
     // Displaying the current local time and date in UK format
