@@ -197,31 +197,21 @@ function commander(cmd) {
         addLine("Your current IP address is: " + ip, "color2", 80);
     });
     break;
+
     case "time":
-    // Function to get current local time and date
+    // Function to get current local time and date in UK format
     function getCurrentTime() {
         const now = new Date();
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' };
-        const formattedTime = now.toLocaleString('en-US', options);
-        addLine("Current Local Time: " + formattedTime, "color2", 80);
+        const formattedTime = now.toLocaleString('en-GB', options);
+        addLine("Current Local Time (UK): " + formattedTime, "color2", 80);
     }
 
-    // Displaying the current local time and date
+    // Displaying the current local time and date in UK format
     getCurrentTime();
     break;
-    case "update":
-      addLine("Opening Updater...", "color2", 80);
-      setTimeout(function() {
-      var url = '/update';
-      var win = window.open(url, '_self');
-      if (win) {
-      win.addEventListener('load', function() {
-        win.document.documentElement.requestFullscreen();
-        });
-      }
-     }, 1000); 
-     break;
-	case "sudo":
+    
+    case "sudo":
 	  addLine("Oh no, you're not admin...", "color2", 80);
 	  addLine("---------------------------","color2", 80);
       loopLines(help, "color2 margin", 80);
