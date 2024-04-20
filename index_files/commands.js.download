@@ -7,7 +7,7 @@ var Adil = "Adil";
 var ADIL = "ADIL";
 var jaber = "jaber";
 var whatsapp = "https://wa.link/p8dhsa";
-var phone = "tel:+212624489471";
+var phone = "tel:+212722409137";
 var email = 'mailto:adil@asadqi.com';
 var website = 'https://win.asadqi.com';
 var cloud = "https://cloud.asadqi.com";
@@ -152,7 +152,7 @@ root = [
   '<span class="command">cv</span>             View or Download Curriculum Vitae',
   '<span class="command">ip</span>             View your public ip address',
   '<span class="command">time</span>           Your Current Local Time',
-  '<span class="command">distroy</span>        Will Distroy this website',
+  '<span class="command">destroy</span>        Will Destroy this website',
   '<span class="command">pin</span>            Will Generate pins for you',
   "<br>",
 ]
